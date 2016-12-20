@@ -28,6 +28,10 @@ BEGIN
 END;
 
 --person
+INSERT INTO Person VALUES (‘01234234’, ‘Grant’, ‘Felix’, ‘Mr’, ‘2Boadle’,  ‘03985487’,‘3083’, ‘Bundora’);
+INSERT INTO Person VALUES (‘10008895’, ‘Xie’, ‘Hurry’, ‘Mr’, ‘6 Killy’,  ‘0398875542’,‘3088’, ‘Bundora’);
+INSERT INTO Person VALUES (‘10002935’, ‘jones’, ‘Flxly’, ‘Ms’, ‘14 Rennei St’,  ‘0398722001’,‘3071’, ‘Bundora’);
+
 
 --student
 
