@@ -12,6 +12,7 @@ insert into Faculty values (1,'Heahth Science' , 'S.Duckett',School_Table_T(Scho
  Department_Table_T(Department_T((NULL,NULL,NULL,NULL)),Research_Center_T(Research_T(NULL,NULL,NULL,NULL)));
  insert into Faculty values (5,'Regional Department' , 'L.Kilmartin',School_Table_T(School_T(NULL,NULL,NULL,NULL)),
  Department_Table_T(Department_T((NULL,NULL,NULL,NULL)),Research_Center_T(Research_T(NULL,NULL,NULL,NULL)));
+ end;
 --school
 
 --department
