@@ -126,6 +126,69 @@ END;
 
 --person
 
+CREATE OR REPLACE TYPE Person_T AS OBJECT  ( 
+ pers_id VARCHAR2(10),
+ pers_surname VARCHAR2(20),
+ pers_fname VARCHAR2(20),
+ pers_title VARCHAR2(10),
+ pers_address VARCHAR2(50),
+ pers_phone VARCHAR2(12),
+ pers_postcode NUMBER,
+ in_campus REF Campus_T,
+member PROCEDURE insert_person(
+  pers_id IN VARCHAR2,
+pers_surname IN VARCHAR2,
+pers_fname IN VARCHAR2,
+pers_title IN VARCHAR2,
+pers_address IN VARCHAR2,
+pers_phone IN VARCHAR2,
+pers_postcode IN NUMBER,
+campus_location IN VARCHAR2 
+),
+ MEMBER PROCEDURE delete_person
+ )
+ NOT FINAL /
+CREATE TABLE Person OF Person_T
+(
+pers_id NOT NULL,
+PRIMARY KEY (pers_id) 
+CREATE OR REPLACE TYPE BODY Person_T AS 
+member PROCEDURE insert_person( 
+p_id IN VARCHAR2,
+p_surname IN VARCHAR2,
+p_fname IN VARCHAR2,
+p_title IN VARCHAR2,
+p_address IN VARCHAR2,
+p_phone IN VARCHAR2,
+p_postcode IN NUMBER,
+campus_location IN VARCHAR2) IS
+campus_temp REF Campus_T;
+BEGIN
+SELECT REF(a) INTO campus_temp
+FROM Campus a WHERE a.campus_location = campus_location;
+INSERT INTO Person VALUES (
+p_id, 
+p_surname,
+ p_fname,
+ p_title,
+ p_address,
+ pers_phone,
+ p_postcode, 
+campus_temp
+);
+END insert_person;
+MEMBER PROCEDURE delete_person IS
+BEGIN
+
+DELETE FROM Person
+WHERE p_id = self.p_id;
+END delete_person ;
+END;
+/
+
+
+
+
 --staff
 
 --student
